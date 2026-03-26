@@ -5,13 +5,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Maven@4
+- task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'clean test'
     options: '-Dsurefire.suiteXmlFiles=regression.xml'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles: '**/target/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
+    jdkVersionOption: '11'
     mavenVersionOption: 'Default'
